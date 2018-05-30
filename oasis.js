@@ -78,3 +78,11 @@ if (mobilebtns.length && sections.length > 0) {
 navIcon.addEventListener("click", function() {
   document.querySelector(".mobile-list").classList.toggle("show");
 });
+
+
+function fakeEmailSubmission() {
+  var emailResponseMsgDiv = document.getElementById("email-submission-response-div");
+  var input = document.getElementById('email-form-div');
+  input.style.display = "none";
+  emailResponseMsgDiv.style.display = "block";
+}

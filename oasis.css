@@ -296,10 +296,11 @@ section {
   .section--how-it-works .fadeInLeft--2 {
     animation-delay: 1000ms; }
   .section--how-it-works > .flex--horizontal {
+    align-items: flex-start;
     justify-content: center; }
   .section--how-it-works .features__left,
   .section--how-it-works .features__right {
-    width: 25%;
+    width: 28%;
     font-size: 0.9em; }
     .section--how-it-works .features__left object,
     .section--how-it-works .features__right object {
@@ -314,7 +315,8 @@ section {
       margin: 2rem 0;
       opacity: 0; }
   .section--how-it-works .features__right {
-    text-align: left;
+    text-align: right;
+    align-items: flex-end;
     padding-left: 2rem; }
     .section--how-it-works .features__right > .flex--vertical {
       align-items: flex-start;
@@ -650,7 +652,24 @@ section {
       height: 100px;
       margin: 0 0 -2rem 1.2rem;
       order: -1;
-      z-index: 1; } }
+      z-index: 1; }
+  .features__left.aligner.flex--vertical, .features__right.aligner.flex--vertical {
+    align-items: center;
+  }
+  .flex--vertical.fadeInLeft.fadeInLeft--, .flex--vertical.fadeInRight.fadeInRight-- {
+    flex-direction: column;
+  }
+  .flex--vertical.fadeInLeft.fadeInLeft-- img, .flex--vertical.fadeInRight.fadeInRight-- img {
+    margin: 0 0 1rem 0;
+  }
+  .flex--vertical.fadeInLeft.fadeInLeft-- h4, .flex--vertical.fadeInRight.fadeInRight-- h4 {
+    text-align: center;
+  }
+  .flex--vertical.fadeInLeft.fadeInLeft-- h4 br {
+    display: none;
+  }
+
+}
 @media only screen and (max-width: 660px) {
   .snippets__cards {
     display: none; }
@@ -710,5 +729,48 @@ section {
 
 .section--integrations .flex--horizontal {
   justify-content: space-between; }
+
+.features__left, .features__right {
+  align-items: flex-end; }
+
+.features__left .flex--vertical, .features__right .flex--vertical  {
+  flex-direction: row-reverse;
+  align-items: center !important; }
+
+.features__left img, .features__right img {
+  width: auto;
+  margin-left: 1.25rem; }
+
+.cbt-div, .cardio-div, .motivation-div, .strength-div, .krav-div, .diet-div  {
+  flex-direction: column;
+  margin: 2rem 0;
+}
+.cbt-div p, .cardio-div p, .motivation-div p, .strength-div p, .krav-div p, .diet-div p {
+  margin-top: 1rem;
+  text-align: center;
+  min-height: 92px;
+  max-width: 300px;
+}
+
+#email-submission-response-div {
+  display: none;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+
+/*@media only screen and (min-width: 960px) {
+  .cbt-div:hover, .cardio-div:hover, .motivation-div:hover, .strength-div:hover, .krav-div:hover, .diet-div:hover {
+    padding: 2rem .5rem;
+    background: #6046d72b;
+    border-radius: 2px;
+    box-shadow: -1px 2px 3px 1px #0000006b;
+  }
+  .cbt-div p, .cardio-div p, .motivation-div p, .strength-div p, .krav-div p, .diet-div p {
+    display: none;
+  }
+}*/
+
+    
 
 /*# sourceMappingURL=oasis.css.map */

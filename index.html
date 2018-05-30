@@ -164,12 +164,101 @@ section-contact:
 <section class="section--how-it-works scroll-to-reveal js-section">
   <div class="section__title unbreakable-facets-section">
     <h3 class="font-fjalla">How it works</h3>
-    <p>We empower youths through scientifically proven psychological techniques including cognitive behavioral therapy, diet/nutrition, motivation, strength-training, cardio exercise, and self-defense.</p>
+    <p>We empower youths through scientifically proven psychological techniques including cognitive behavioral therapy, diet and nutrition, motivation, strength-training, cardio exercise, and self-defense.</p>
   </div>
   <div class="flex--horizontal">
-    <img class="features__image" src="https://lh4.googleusercontent.com/b6YYWt-3CYT6trNYpLVm9M2Pz4vRdgO_Z5cCY6jNP57ILxMVdqlXWIN_Z-fmvKEZSJkMnAfZfeN7HykBV6ci1sDG1y5UC0URZevakjk65inJHYSVOWpY8bA2VTU53cG8V2NVnRJ2f1xVfwLTAg" alt="">
+    <div class="features__left aligner flex--vertical">
+      <div class="cbt-div">
+        <div class="flex--vertical fadeInLeft fadeInLeft--{{ forloop.index0 }}">
+          <img src="images/cbt_img.png">
+          <h4 class="font-fjalla">Cognitive Behavioral Therapy</h4>
+        </div>
+        <p class="fadeIn">
+          CBT teaches your child to better understand how their thoughts and feelings influence their behavior.
+        </p>
+      </div>
+      <div class="cardio-div">
+        <div class="flex--vertical fadeInLeft fadeInLeft--{{ forloop.index0 }}">
+          <img src="images/kickboxing_img.png">
+          <h4 class="font-fjalla">Cardio Kickboxing</h4>
+        </div>
+        <p class="fadeIn">
+          Kids who are physically fit have a better outlook on life and are better able to handle physical and emotional challenges.
+        </p>
+      </div>
+      <div class="krav-div">
+        <div class="flex--vertical fadeInLeft fadeInLeft--{{ forloop.index0 }}">
+          <img src="images/krav_img.png">
+          <h4 class="font-fjalla">Krav Maga <br>Self Defense</h4>
+        </div>
+        <p class="fadeIn">
+          Krav Maga is a modern self-defense and fighting system designed to be practical and intuitive for people of any age, shape, or size.
+        </p>
+    </div>
+    </div>
+    <div class="features__right aligner flex--vertical">
+      <div class="motivation-div">
+        <div class="flex--vertical fadeInRight fadeInRight--{{ forloop.index0 }}">
+          <img src="images/motivation_img.png">
+          <h4 class="font-fjalla">Motivation</h4>
+        </div>
+        <p class="fadeIn">
+          Providing motivational support improves your child's initiative and activates a sense of purpose within them.
+        </p>
+      </div>
+      <div class="strength-div">
+        <div class="flex--vertical fadeInRight fadeInRight--{{ forloop.index0 }}">
+          <img src="images/weight_img.png">
+          <h4 class="font-fjalla">Strength Training</h4>
+        </div>
+        <p class="fadeIn">
+          Strength training is used to build healthy muscles, joints, and bones. Endurance and total fitness level also improve.
+        </p>
+      </div>
+      <div class="diet-div">
+        <div class="flex--vertical fadeInRight fadeInRight--{{ forloop.index0 }}">
+          <img src="images/diet_img.png">
+          <h4 class="font-fjalla">Diet and Nutrition</h4>
+        </div>
+        <p class="fadeIn">
+          Practice eating healthy teaches your child how to maintain a healthy weight while developing an important skill for their well-being.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
+
+<section class="section--features scroll-to-reveal js-section">
+  <div class="section__title">
+    <h3 class="font-fjalla">{{ page.section-features.title }}</h3>
+    <p>{{ page.section-features.description }}</p>
+  </div>
+  <div class="flex--horizontal">
+    <div class="features__left aligner flex--vertical">
+      {% for feature in page.section-features.features-left %}
+        <div class="flex--vertical fadeInLeft fadeInLeft--{{ forloop.index0 }}">
+          <object type="image/svg+xml" data="{{ feature.img }}"></object>
+          <p>{{ feature.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <img class="features__image" src="{{ page.section-features.image }}" alt="">
+    <div class="features__right aligner flex--vertical">
+      {% for feature in page.section-features.features-right %}
+        <div class="flex--vertical fadeInRight fadeInRight--{{ forloop.index0 }}">
+          <object type="image/svg+xml" data="{{ feature.img }}"></object>
+          <p>{{ feature.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- 
+    <img class="features__image" src="https://lh4.googleusercontent.com/b6YYWt-3CYT6trNYpLVm9M2Pz4vRdgO_Z5cCY6jNP57ILxMVdqlXWIN_Z-fmvKEZSJkMnAfZfeN7HykBV6ci1sDG1y5UC0URZevakjk65inJHYSVOWpY8bA2VTU53cG8V2NVnRJ2f1xVfwLTAg" alt=""> -->
+
+
 <section class="section--integrations">
   <div class="section__title">
     <h3 class="font-fjalla">Trusted by</h3>
@@ -217,9 +306,12 @@ section-contact:
   <div class="section__title">
     <h3 class="font-fjalla">End the bullying</h3>
     <p>Enter your email below and a representative will get in touch with you.</p>
-    <div class="form-group">
-      <input type="text" class="input" placeholder="Your Email">
-      <button class="input-button">Submit</button>
-    </div>
+    <form onsubmit="fakeEmailSubmission(); return false;">
+      <div class="form-group" id="email-form-div">
+        <input type="email" name="email" class="input" placeholder="Your Email" required>
+        <button class="input-button">Submit</button>
+      </div>
+    </form>
+    <div id="email-submission-response-div" class="fadeIn">Your email has been submitted!</div>
   </div>
 </section>
